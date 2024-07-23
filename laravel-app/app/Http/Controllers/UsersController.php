@@ -7,7 +7,7 @@ class UsersController extends Controller
 {
     function index()
     {
-        // Get all users from the database (Eloquent)
+        // Get all users from the database (Using Eloquent)
         $users = User::all();
 
         return response()->json($users, 200);

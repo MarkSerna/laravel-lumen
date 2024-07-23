@@ -1,0 +1,23 @@
+services:
+  laravel-lumen:
+    container_name: laravel-lumen
+    build: .
+    volumes:
+      - ./laravel-app:/var/www/html
+    ports:
+      - 9000:80
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel_lumen
+    ports:
+      - 3307:3306
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
